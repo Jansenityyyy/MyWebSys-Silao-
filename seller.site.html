@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products | Vogue Essence by Sen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+
+
+<div class="container">
+    <div class="navbar">
+        <div class="logo">
+            <a href="Home Page.html"><img src="aa.png" width="170px"></a>
+        </div>
+        <nav>
+            <ul id="MenuItems">
+                <li class="search-bar"><input type="text" placeholder="Search..."><button type="submit"><i class="fa fa-search"></i></button></li>
+                <li><a href="Home Page.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="product.html"><i class="fa-solid fa-box"></i> Products</a></li>
+                <li><a href="account.html"><i class="fa-solid fa-user"></i> Account</a></li>
+            </ul>
+        </nav>
+        <a href="cart.html"><img src="cart2.png" width="60px" height="50px"></a>
+        <img src="menu.png" class="menu-icon" onclick="menutoggle()" width="30px" height="30px">
+    </div>
+</div>
+
+<!-----------------SELLER---------------------->
+<div class="seller-dashboard">
+    <!-- First Row -->
+    <div class="dashboard-row">
+        <!-- Orders Graph (1st Column) -->
+        <div class="dashboard-column">
+            <div class="card">
+                <h3>Orders Graph</h3>
+                <canvas id="ordersChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Report Sales (2nd Column) -->
+        <div class="dashboard-column">
+            <div class="card">
+                <h3>Report Sales</h3>
+                <canvas id="salesChart"></canvas>
+                <strong><p>Total Sales: <span id="profit">$5000</span></p></strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Row -->
+    <div class="dashboard-row">
+        <!-- Add New Product (1st Column) -->
+        <div class="dashboard-column">
+            <div class="card">
+                <h3>Add New Product</h3>
+                <form id="add-product-form">
+                    <label for="product-name">Product Name</label>
+                    <input type="text" id="product-name" placeholder="Enter product name" required>
+
+                    <label for="product-category">Category</label>
+                    <select id="product-category" required>
+                        <option value="">Select category</option>
+                        <option value="electronics">Watch</option>
+                        <option value="fashion">Clothes</option>
+                        <option value="beauty">Suit</option>
+                        <option value="beauty">Socks</option>
+                        <option value="beauty">Perfume</option>
+                        <option value="beauty">Pants</option>
+                    </select>
+
+                    <button type="submit">Add Product</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Coupons Usage (2nd Column) -->
+        <div class="dashboard-column">
+            <div class="card">
+                <h3>Add Coupons</h3>
+                <ul id="coupon-list">
+                    <li>Coupon 1: 30% off <button class="add-coupon-btn">Add Now</button></li>
+                    <li>Coupon 2: 20% off <button class="add-coupon-btn">Add Now</button></li>
+                    <li>Coupon 3: 15% off <button class="add-coupon-btn">Add Now</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<!-- Third Row -->
+<div class="dashboard-row">
+    <!-- Customer Inquiries Column -->
+    <div class="dashboard-column">
+        <div class="card">
+            <h3>Customer Inquiries</h3>
+
+            <!-- First Message -->
+            <div class="inquiry-block">
+                <p><strong>Question 1:</strong> Hi! I ordered last May 5, when will my item arrive?</p>
+                <label for="reply-message-1">Answer:</label>
+                <input type="text" id="reply-message-1" placeholder="Enter your message here..." />
+                <button class="green-button">SEND</button>
+            </div>
+
+            <hr style="margin: 20px 0;">
+
+            <!-- Second Message -->
+            <div class="inquiry-block">
+                <p><strong>Question 2:</strong> Do you have size medium for the black denim jacket?</p>
+                <label for="reply-message-2">Answer:</label>
+                <input type="text" id="reply-message-2" placeholder="Enter your message here..." />
+                <button class="green-button">SEND</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seller News Column -->
+    <div class="dashboard-column">
+        <div class="card">
+            <h3>Post News or Updates</h3>
+            <label for="seller-news">Write your announcement below:</label>
+            <textarea id="seller-news" rows="6" placeholder="Type your news, updates, or promos here..." style="width: 100%; padding: 10px; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+            <button class="green-button">POST</button>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+<!-- Add Chart.js Script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Simulate an orders graph using Chart.js
+    var ctxOrders = document.getElementById('ordersChart').getContext('2d');
+    var ordersChart = new Chart(ctxOrders, {
+        type: 'bar',
+        data: {
+            labels: ['Watch', 'Suit', 'Perfume', 'Socks'],
+            datasets: [{
+                label: 'Items Sold',
+                data: [15, 30, 45, 25],
+                backgroundColor: 'rgba(76, 175, 80, 0.2)',  // Green color with transparency
+                borderColor: 'rgba(76, 175, 80, 1)',      // Solid green border
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Simulate a sales graph (Up and Down) using Chart.js
+    var ctxSales = document.getElementById('salesChart').getContext('2d');
+    var salesChart = new Chart(ctxSales, {
+        type: 'line',
+        data: {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+            datasets: [{
+                label: 'Sales Trend',
+                data: [500, 600, 400, 700], // Simulating sales data with ups and downs
+                borderColor: 'rgba(76, 175, 80, 1)',  // Solid green border for line graph
+                backgroundColor: 'rgba(76, 175, 80, 0.2)', // Light green for the background
+                borderWidth: 2,
+                tension: 0.4
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+
+
+
+
+
+<!-------------footer--------------->
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download App for Android and ios</p>
+                <div class="app-logo">
+                    <img src="d1.png">
+                    <img src="d2.png">
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <a href="Home Page.html"><img src="2.png"></a>
+                <p>Vogue Essence by Sen—elevating style with elegance, luxury, and trendsetting fashion.</p>
+            </div>
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><i class="fa-solid fa-ticket fa-1g"></i> Coupons</li>
+                    <li><i class="fa-solid fa-undo fa-1g"></i> Return Policy</li>
+                    <a href="feedback.html"><li><i class="fa-solid fa-comment fa-1g"></i> Feedback</li></a>
+                    <li><i class="fa-solid fa-handshake fa-1g"></i> Join Affiliate</li>  
+                </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Follow us</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/profile.php?id=61573238416249">
+                        <i class="fa-brands fa-facebook fa-1g"></i> Facebook</a></li>
+                    <li><a href="https://www.instagram.com/JansenMark04">
+                        <i class="fa-brands fa-instagram fa-1g"></i> Instagram</a></li>
+                    <li><a href="https://www.youtube.com/JansenMark04">
+                        <i class="fa-brands fa-youtube fa-1g"></i> YouTube</a></li>
+                    <li><a href="https://www.tiktok.com/@JansenMark04">
+                        <i class="fa-brands fa-tiktok fa-1g"></i> TikTok</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-5">
+                <h3>Biodata</h3>
+                <ul>
+                    <li><a href="Biodata.html"><i class="fa-solid fa-user">About Me</a></i></li>
+                </ul>
+            </div>
+            
+        </div>
+        <hr>
+        <p class="copyright">© 2025 Vogue Essence By Sen. All rights reserved.</p>
+    </div>
+</div>
+<script src="index.js"></script>
+
+
+</body>
+</html>

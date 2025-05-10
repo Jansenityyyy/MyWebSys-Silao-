@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products | Vogue Essence by Sen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+
+
+<div class="container">
+    <div class="navbar">
+        <div class="logo">
+            <a href="Home Page.html"><img src="aa.png" width="170px"></a>
+        </div>
+        <nav>
+            <ul id="MenuItems">
+                <li class="search-bar"><input type="text" placeholder="Search..."><button type="submit"><i class="fa fa-search"></i></button></li>
+                <li><a href="Home Page.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="product.html"><i class="fa-solid fa-box"></i> Products</a></li>
+                <li><a href="account.html"><i class="fa-solid fa-user"></i> Account</a></li>
+            </ul>
+        </nav>
+        <a href="cart.html"><img src="cart2.png" width="60px" height="50px"></a>
+        <img src="menu.png" class="menu-icon" onclick="menutoggle()" width="30px" height="30px">
+    </div>
+</div>
+
+
+
+<!---------------------------cart item--------------------------->
+<div class="small-container cart-page">
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+        </tr>
+        <tr>
+            <td>
+                <div class="cart-info">
+                    <img src="s (2).jpg">
+                <div>
+                <p>Aesthetic Socks (10 pairs)</p>
+                <small>₱500</small>
+                <br>
+                <a href="">Remove</a>
+                </div>
+                </div>
+            </td>
+            <td><input type="number" value="1"></td>
+            <td>₱500</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="cart-info">
+                    <img src="s (3).jpg">
+                <div>
+                <p>Aesthetic Socks (10 pairs)</p>
+                <small>₱500</small>
+                <br>
+                <a href="">Remove</a>
+                </div>
+                </div>
+            </td>
+            <td><input type="number" value="1"></td>
+            <td>₱500</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="cart-info">
+                    <img src="s (4).jpg">
+                <div>
+                <p>Aesthetic Socks (10 pairs)</p>
+                <small>₱500</small>
+                <br>
+                <a href="">Remove</a>
+                </div>
+                </div>
+            </td>
+            <td><input type="number" value="1"></td>
+            <td>₱1,000</td>
+        </tr>
+    </table>
+
+    <div class="total-price">
+        <table>
+            <tr>
+                <td>Subtotal</td>
+                <td>₱2,000</td>
+            </tr>
+            <tr>
+                <td>Tax</td>
+                <td>₱31</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td id="totalPrice">₱2,031</td>
+            </tr>
+        </table>
+    </div>
+<!--------------Checkout--------------->
+<div class="checkout-container">
+    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+</div>
+
+
+<!---------------Coupon------------------>
+<div class="coupon-container">
+    <h3>Have a Coupon?</h3>
+    <input type="text" id="couponCode" placeholder="Enter Coupon Code">
+    <button id="applyCoupon">Apply</button>
+</div>
+
+</div>
+
+
+<!-------------footer--------------->
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download App for Android and ios</p>
+                <div class="app-logo">
+                    <img src="d1.png">
+                    <img src="d2.png">
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <a href="Home Page.html"><img src="2.png"></a>
+                <p>Vogue Essence by Sen—elevating style with elegance, luxury, and trendsetting fashion.</p>
+            </div>
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><i class="fa-solid fa-ticket fa-1g"></i> Coupons</li>
+                    <li><i class="fa-solid fa-undo fa-1g"></i> Return Policy</li>
+                    <a href="feedback.html"><li><i class="fa-solid fa-comment fa-1g"></i> Feedback</li></a>
+                    <li><i class="fa-solid fa-handshake fa-1g"></i> Join Affiliate</li>  
+                </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Follow us</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/profile.php?id=61573238416249">
+                        <i class="fa-brands fa-facebook fa-1g"></i> Facebook</a></li>
+                    <li><a href="https://www.instagram.com/JansenMark04">
+                        <i class="fa-brands fa-instagram fa-1g"></i> Instagram</a></li>
+                    <li><a href="https://www.youtube.com/JansenMark04">
+                        <i class="fa-brands fa-youtube fa-1g"></i> YouTube</a></li>
+                    <li><a href="https://www.tiktok.com/@JansenMark04">
+                        <i class="fa-brands fa-tiktok fa-1g"></i> TikTok</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-5">
+                <h3>Biodata</h3>
+                <ul>
+                    <li><a href="Biodata.html"><i class="fa-solid fa-user">About Me</a></i></li>
+                </ul>
+            </div>
+            
+        </div>
+        <hr>
+        <p class="copyright">© 2025 Vogue Essence By Sen. All rights reserved.</p>
+    </div>
+</div>
+
+
+<!-----------js for toggle menu-------------->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+
+        MenuItems.style.maxHeight = "0px";
+
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+            {
+                MenuItems.style.maxHeight == "200px";
+            }
+            else
+            {
+                MenuItems.style.maxHeight == "0px";
+            }
+        }
+    </script>
+<script src="index.js"></script>
+</body>
+</html>
